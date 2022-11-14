@@ -4,33 +4,34 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import java.io.File;
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import io.restassured.response.ResponseBody;
+import io.restassured.specification.RequestSpecification;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class MainClass {
     public static void main(String[] args) throws FileNotFoundException {
-        File input = new File(System.getProperty("user.dir") + "/data.json");
-        JsonElement fileElement = JsonParser.parseReader(new FileReader(input));
+        RequestSpecification requestSpecification = RestAssured.given();
+        Response response = requestSpecification.get("https://demoqa.com/BookStore/v1/Books");
+        ResponseBody responseBody = response.getBody();
+        String responseBod = responseBody.asString();
+        JsonPath jsonPath = response.jsonPath();
+        String s = jsonPath.get("books").toString();
+        JsonElement fileElement = JsonParser.parseString(responseBod);
         JsonObject fileObject = fileElement.getAsJsonObject();
-
-
-        JsonArray jsonArrayOfNamendEmail = fileObject.get("books").getAsJsonArray();
-        List<Pojoclass> StoreValue= new ArrayList();
-
-        for (JsonElement NameElement : jsonArrayOfNamendEmail.getAsJsonArray()) {
-            JsonObject EmailJsonObject = NameElement.getAsJsonObject();
-
-            String Name =  EmailJsonObject.get("isbn").getAsString();
-            String Email =  EmailJsonObject.get("title").getAsString();
-            String Name1=  EmailJsonObject.get("subTitle").getAsString();
-            String Email3 =  EmailJsonObject.get("author").getAsString();
-
-            Pojoclass obj = new Pojoclass(Name,Email,Name1,Email3);
-            StoreValue.add(obj);
+        JsonArray jsonArrayOfBooks = fileObject.get("books").getAsJsonArray();
+        ArrayList<Pojoclass> books = new ArrayList<>();
+        for (JsonElement booksElement : jsonArrayOfBooks.getAsJsonArray()) {
+            JsonObject JsonObject = booksElement.getAsJsonObject();
+            Pojoclass booksData = new Pojoclass( JsonObject.get( "title" ).toString(), JsonObject.get( "author" ).toString(), JsonObject.get( "publisher" ).toString() );
+            books.add( booksData );
         }
-        System.out.println("Names are"+ StoreValue);
+        Pojoclass pojoclass = books.get(0);
+        System.out.println(pojoclass.getTitle());
+        System.out.println(books);
     }
 }
