@@ -2,12 +2,12 @@ package AuthenticationOfRequests;
 
 public class Pojoclass {
     private String title;
-    private String subtitle;
+    private String publisher;
     private String author;
 
-    public Pojoclass(String title, String subTitle, String publisher) {
+    public Pojoclass(String title, String author, String publisher) {
         this.title = title;
-        this.subtitle= subTitle;
+        this.publisher = publisher;
         this.author= author;
 
     }
@@ -21,12 +21,12 @@ public class Pojoclass {
         this.title = title;
     }
 
-    public String getSubTitl() {
-        return subtitle;
+    public String getPublisher() {
+        return publisher;
     }
 
-    public void setSubTitl(String subTitle) {
-        this.subtitle = subTitle;
+    public void setPublisher(String subTitle) {
+        this.publisher = publisher;
     }
 
     public String getAuthor() {
@@ -38,6 +38,6 @@ public class Pojoclass {
     }
     @Override
     public String toString() {
-        return "Title : " + this.title + "subtitile is: " + this.subtitle+"  Author is : " + this.author;
+        return "Title : " + this.title + "subtitile is: " + this.publisher+"  Author is : " + this.author;
     }
 }

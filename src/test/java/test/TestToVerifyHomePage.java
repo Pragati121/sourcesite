@@ -9,11 +9,9 @@ public class TestToVerifyHomePage extends Baseclass {
     public void loginTest() throws IOException {
         Setup();
         pageFactory.getLoginobject().USerMethod();
-
-    }
-
-    @Test(priority = 1)
-    public void BookTest() throws IOException {
-        pageFactory.getBookObject().book();
+        pageFactory.getBookobject().book();
+        pageFactory.getBookobject().Retrievingthedata();
     }
 }
+
+

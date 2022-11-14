@@ -1,7 +1,7 @@
 package test;
-
 import Page.BookPage;
 import Page.LoginPage;
+import Page.ToVerifyUserIsGettingTheData;
 import org.openqa.selenium.WebDriver;
 
 public class Pagefactory {
@@ -20,10 +20,12 @@ public class Pagefactory {
         return Loginobject;
     }
 
-    public BookPage getBookObject() {
+    public BookPage getBookobject() {
         if (BookObject == null) {
             BookObject = new BookPage(driver);
         }
         return BookObject;
     }
-}
+    }
+
+

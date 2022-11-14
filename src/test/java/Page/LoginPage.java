@@ -5,12 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import test.Baseclass;
 import java.time.Duration;
 import java.util.List;
 
 
-public class LoginPage extends Baseclass {
+public class LoginPage  {
     List<WebElement> allElementDisplay;
     static WebDriver driver;
     WebDriverWait wait;
