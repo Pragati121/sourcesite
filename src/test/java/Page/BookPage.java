@@ -14,9 +14,6 @@ import net.jodah.failsafe.internal.util.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import Enum.LoginEnum;
-
-
 
 
 import java.util.ArrayList;
@@ -40,10 +37,10 @@ public class BookPage {
     public void book() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("scrollBy(0, 1000)");
-        driver.findElement(By.xpath(String.format(clickonBookElement, Book.getResourcesName()))).click();
+        driver.findElement(By.xpath(String.format(clickonBookElement, Book.getresourcesname()))).click();
         String actual = driver.findElement(By.xpath(verifybooks)).getText();
         System.out.println(actual);
-        assertEquals(actual, Items.getResourcesName(), "Expected does not match");
+        assertEquals(actual, Items.getresourcesname(), "Expected does not match");
     }
 
     public void Retrievingthedata() {
@@ -63,11 +60,11 @@ public class BookPage {
             books.add(booksData);
         }
         System.out.println(books);
-        String actual = driver.findElement(By.xpath(String.format(Title, title.getResourcesName()))).getText();
-        Assert.isTrue(actual.equals(title), "Expected result does not match actual result");
-        String actual1 = driver.findElement(By.xpath(String.format(titleAuthor, author.getResourcesName()))).getText();
+        String actualtask = driver.findElement(By.xpath(String.format(Title, title.getresourcesname()))).getText();
+        Assert.isTrue(actualtask.equals(title), "Expected result does not match actual result");
+        String actual1 = driver.findElement(By.xpath(String.format(titleAuthor, author.getresourcesname()))).getText();
         Assert.isTrue(actual1.equals(author), "Expected result does not match actual result");
-        String actual2 = driver.findElement(By.xpath(String.format(titleAuthor, publisher.getResourcesName()))).getText();
+        String actual2 = driver.findElement(By.xpath(String.format(titleAuthor, publisher.getresourcesname()))).getText();
         Assert.isTrue(actual2.equals(publisher), "Expected result does not match actual result");
     }
 }

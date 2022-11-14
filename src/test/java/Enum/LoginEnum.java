@@ -10,7 +10,8 @@ public enum LoginEnum {
     {
         this.name = name;
     }
-    public String getResourcesName()
+    public String getresourcesname
+            ()
     {
         return name;
     }

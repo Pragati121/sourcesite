@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class TestToVerifyHomePage extends Baseclass {
-    @Test(priority = 0)
+    @Test
     public void loginTest() throws IOException {
         Setup();
         pageFactory.getLoginobject().USerMethod();
