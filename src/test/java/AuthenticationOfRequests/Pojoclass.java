@@ -38,6 +38,6 @@ public class Pojoclass {
     }
     @Override
     public String toString() {
-        return "Title : " + this.title + "subtitile is: " + this.publisher+"  Author is : " + this.author;
+        return "Title : " + this.title +"  " +"  author is : " + this.author+" "+"publisher is: " + this.publisher;
     }
 }
