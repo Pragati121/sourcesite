@@ -3,8 +3,11 @@ public enum LoginEnum {
     Book ("Book Store Application"),
     Items("Book Store"),
     title("Git Pocket Guide"),
-    author("Richard E. Silverman");
-//    publisher("O'Reilly Media");
+    BookSecondtitle("Learning JavaScript Design Patterns"),
+    BookSixthtitle("Eloquent JavaScript, Second Edition"),
+    author("Richard E. Silverman"),
+    Booksecondauthor("Addy Osmani");
+    ;
     private String name;
     LoginEnum(String name)
     {
